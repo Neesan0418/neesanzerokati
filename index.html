@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neesan Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="dark-mode-toggle" aria-label="Toggle Dark Mode">🌓</button>
+    <div class="game-wrapper">
+        <h1 class="game-title">Neesan Tic Tac Toe</h1>
+
+        <div class="mode-select" role="radiogroup" aria-labelledby="modeSelectLabel">
+            <span id="modeSelectLabel" class="sr-only">Select Game Mode</span>
+            <label><input type="radio" name="mode" value="2p" checked> One Vs One</label>
+            <label style="margin-left:16px;"><input type="radio" name="mode" value="1p"> Solo</label>
+        </div>
+
+        <div class="difficulty-select" id="difficultySelect">
+            <label><input type="radio" name="difficulty" value="easy"> Easy</label>
+            <label style="margin-left:10px;"><input type="radio" name="difficulty" value="medium" checked> Medium</label>
+            <label style="margin-left:10px;"><input type="radio" name="difficulty" value="hard"> Hard</label>
+        </div>
+
+        <div id="playerNames">
+            <input type="text" id="player1Name" placeholder="Player X" value="Player X">
+            <input type="text" id="player2Name" placeholder="Player O" value="Neesan">
+        </div>
+
+        <div class="timer-container" id="timerContainer">
+            <div class="timer" id="timer">Timer: OFF</div>
+            <button class="timer-toggle" id="timerToggle">Timer: ON</button>
+        </div>
+
+        <div class="score-display" id="scoreDisplay">X: 0 | O: 0 | Draws: 0</div>
+        <div class="move-history" id="moveHistory">Move History: X: [] | O: []</div>
+
+        <div class="status" id="status" aria-live="polite">
+            Player X's turn
+        </div>
+
+        <div class="container" id="board" role="grid">
+            <button class="cell" id="cell0"></button>
+            <button class="cell" id="cell1"></button>
+            <button class="cell" id="cell2"></button>
+            <button class="cell" id="cell3"></button>
+            <button class="cell" id="cell4"></button>
+            <button class="cell" id="cell5"></button>
+            <button class="cell" id="cell6"></button>
+            <button class="cell" id="cell7"></button>
+            <button class="cell" id="cell8"></button>
+        </div>
+
+        <div class="controls">
+            <button aria-label="Undo Last Move">Undo</button>
+            <button class="restart" aria-label="Restart Game">Restart</button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="warningModal">
+        <div class="modal-content">
+            <h3>Game Paused!</h3>
+            <p>Do you want to continue or restart?</p>
+            <div class="modal-buttons">
+                <button class="continue-btn">Continue</button>
+                <button class="restart-btn">Restart</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="resultModal">
+        <div class="modal-content">
+            <h3>Game Over</h3>
+            <p style="margin-top: 10px;"></p>
+            <div class="modal-buttons">
+                <button class="continue-btn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modeChangeModal">
+        <div class="modal-content">
+            <h3>Confirm Change</h3>
+            <p>Changing settings will restart the game. Are you sure?</p>
+            <div class="modal-buttons">
+                <button class="continue-btn">Yes</button>
+                <button class="restart-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="tapSound"></audio>
+    <audio id="winSound"></audio>
+    <audio id="loseSound"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
